@@ -700,6 +700,11 @@ section {
     transform: translateY(0);
 }
 
+.blanco {
+    color: white !important;
+    margin-right: 30px!important;
+}
+
 /* Footer */
 footer {
     background: var(--dark);
