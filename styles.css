@@ -1,21 +1,13 @@
 /* Variables globales */
 :root {
     --primary: #3A86FF;
-    /* Azul innovación (tecnología) */
     --secondary: #8338EC;
-    /* Púrpura creatividad */
     --accent: #FF006E;
-    /* Rosa impacto social */
     --dark: #1A1A2E;
-    /* Azul oscuro profesional */
     --light: #F8F9FA;
-    /* Fondo claro */
     --book: #F2C94C;
-    /* Amarillo conocimiento (libros) */
     --ai: #00F5D4;
-    /* Turquesa IA */
     --email: #4CAF50;
-    /* Verde para email */
     --shadow-soft: 0 5px 15px rgba(0, 0, 0, 0.05);
     --shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.1);
     --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -41,7 +33,7 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
-/* Hero Section - Mejorado */
+/* Hero Section */
 .hero {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     position: relative;
@@ -57,7 +49,6 @@ body {
     overflow: hidden;
 }
 
-/* Añadir elementos decorativos al hero */
 .hero:before {
     content: "";
     position: absolute;
@@ -75,13 +66,8 @@ body {
 }
 
 @keyframes moveBackground {
-    0% {
-        background-position: 0 0, 25px 25px;
-    }
-
-    100% {
-        background-position: 1000px 0, 1025px 25px;
-    }
+    0% { background-position: 0 0, 25px 25px; }
+    100% { background-position: 1000px 0, 1025px 25px; }
 }
 
 .hero-content {
@@ -92,15 +78,8 @@ body {
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .hero-content h1 {
@@ -232,104 +211,12 @@ section {
     margin-bottom: 1.2rem;
 }
 
-/* Social Profiles */
-.social-profiles {
-    margin-top: 1.5rem;
-}
-
-.social-title {
-    font-size: 1.1rem;
-    color: var(--dark);
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
+/* Social Icons - Versión corregida */
 .social-icons {
     display: flex;
-    gap: 1rem;
-}
-
-.social-icon {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    color: white;
-}
-
-.social-icon:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.social-icon.linkedin { background: #0077B5; }
-.social-icon.github { background: #24292e; }
-.social-icon.huggingface { background: #FFD21E; color: var(--dark); }
-.social-icon.twitter { background: #1DA1F2; }
-.social-icon.email { background: #4CAF50; }
-
-/* Responsive */
-@media (max-width: 992px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    
-    .about-image {
-        max-width: 280px;
-        margin: 0 auto;
-    }
-    
-    .about-content {
-        text-align: center;
-    }
-    
-    .about-title:after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .social-icons {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 576px) {
-    .about-title {
-        font-size: 1.8rem;
-    }
-    
-    .about-text p {
-        font-size: 1rem;
-    }
-    
-    .social-icon {
-        width: 32px;
-        height: 32px;
-        font-size: 0.9rem;
-    }
-}
-
-/* Social Profiles */
-.social-profiles {
+    flex-wrap: wrap;
+    gap: 0.8rem;
     margin-top: 1rem;
-}
-
-.social-title,
-.platforms-title {
-    font-size: 1.1rem;
-    color: var(--dark);
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
-
-.social-icons {
-    display: flex;
-    gap: 1rem;
 }
 
 .social-icon {
@@ -339,40 +226,33 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f5f5f5;
-    color: var(--dark);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     transition: all 0.3s ease;
+    color: white !important; /* Forzamos color blanco */
+    box-shadow: var(--shadow-soft);
 }
 
 .social-icon:hover {
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-medium);
 }
 
-.social-icon.linkedin {
-    background: #0077B5;
-    color: white;
+/* Colores específicos - Versión corregida */
+.social-icon.linkedin { background-color: #0077B5 !important; }
+.social-icon.github { background-color: #24292e !important; }
+.social-icon.huggingface { background-color: #00B4D8 !important; }
+.social-icon.twitter { background-color: #1DA1F2 !important; }
+.social-icon.instagram { 
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D) !important; 
 }
+.social-icon.goodreads { background-color: #553B08 !important; }
+.social-icon.email { background-color: #4CAF50 !important; }
+.social-icon.medium { background-color: #00AB6C !important; }
 
-.social-icon.github {
-    background: #24292e;
-    color: white;
-}
-
-.social-icon.huggingface {
-    background: #FFD21E;
-    color: var(--dark);
-}
-
-.social-icon.twitter {
-    background: #1DA1F2;
-    color: white;
-}
-
-.social-icon.email {
-    background: #4CAF50;
-    color: white;
+/* Asegurar que los íconos sean visibles */
+.social-icon i {
+    color: white !important;
+    font-size: 1.1rem;
 }
 
 /* Learning Platforms */
@@ -384,209 +264,35 @@ section {
 
 .platform-badges {
     display: flex;
-    gap: 1.5rem;
     flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .platform-badge {
-    display: inline-block;
-    transition: all 0.3s ease;
-}
-
-.platform-logo {
-    height: 40px;
-    width: auto;
-    opacity: 0.8;
-    transition: all 0.3s ease;
-}
-
-.platform-badge:hover .platform-logo {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-/* Responsive */
-@media (max-width: 992px) {
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .about-image {
-        max-width: 300px;
-        margin: 0 auto;
-    }
-
-    .about-content {
-        text-align: center;
-    }
-
-    .about-title:after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .social-icons,
-    .platform-badges {
-        justify-content: center;
-    }
-}
-
-@media (max-width: 576px) {
-    .about-title {
-        font-size: 1.8rem;
-    }
-
-    .about-text p {
-        font-size: 1rem;
-    }
-
-    .platform-badges {
-        gap: 1rem;
-    }
-
-    .platform-logo {
-        height: 35px;
-    }
-}
-
-/* Redes Sociales - Mejorado */
-.social-section {
-    margin-top: 3rem;
-}
-
-.social-category {
-    margin-bottom: 2.5rem;
-}
-
-.social-category h3 {
-    font-family: 'Playfair Display', serif;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    background: rgba(58, 134, 255, 0.1);
     color: var(--dark);
-    margin-bottom: 1.5rem;
-    font-size: 1.3rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
-
-.social-category h3:before {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 3px;
-    background: var(--secondary);
-}
-
-/* Mejorar el grid para mostrar menos botones por fila en móvil */
-.social-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.2rem;
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 1.2rem 1.8rem;
-    /* Botones más grandes */
-    border-radius: 12px;
-    /* Bordes más redondeados */
     text-decoration: none;
-    color: white;
-    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.platform-badge:hover {
+    background: rgba(58, 134, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.platform-icon {
     font-size: 1.1rem;
-    /* Texto más grande */
-    transition: var(--transition-standard);
-    box-shadow: var(--shadow-medium);
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+    font-weight: 700;
 }
 
-.social-link:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.1);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-    z-index: -1;
-}
-
-.social-link:hover:before {
-    transform: scaleX(1);
-}
-
-.social-link:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.social-link i {
-    font-size: 1.6rem;
-    /* Iconos más grandes */
-}
-
-/* Colores específicos para cada red */
-.linkedin {
-    background: linear-gradient(45deg, #0077B5, #00A0DC);
-}
-
-.github {
-    background: linear-gradient(45deg, #24292e, #40464e);
-}
-
-.huggingface {
-    background: linear-gradient(45deg, #00B4D8, #00F5D4);
-    color: var(--dark) !important;
-}
-
-.twitter {
-    background: linear-gradient(45deg, #1DA1F2, #0C85D0);
-}
-
-.instagram {
-    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
-}
-
-.medium {
-    background: linear-gradient(45deg, #00AB6C, #027D50);
-}
-
-.goodreads {
-    background: linear-gradient(45deg, #F2C94C, #E2A100);
-    color: var(--dark) !important;
-}
-
-.email {
-    background: linear-gradient(45deg, #4CAF50, #388E3C);
-}
-
-/* Títulos de sección */
-.section-title {
-    text-align: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: var(--secondary);
-    position: relative;
-}
-
-.section-title:after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: var(--accent);
-    border-radius: 2px;
+.platform-name {
+    font-size: 0.95rem;
+    font-weight: 500;
 }
 
 /* Experiencia Profesional */
@@ -855,7 +561,7 @@ section {
     margin-left: -1rem;
 }
 
-/* Contacto - Mejorado */
+/* Contacto */
 .contact {
     text-align: center;
     padding: 7rem 0 5rem;
@@ -892,12 +598,10 @@ section {
     position: relative;
 }
 
-/* Redes sociales en contacto - mismas mejoras que las redes anteriores */
-.contact .social-links {
+.contact .social-icons {
     justify-content: center;
     margin: 2rem auto;
     max-width: 800px;
-    position: relative;
 }
 
 /* Formulario de contacto */
@@ -1048,25 +752,33 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 992px) {
-    .about {
+    .about-grid {
         grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .about-image {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+    
+    .about-content {
         text-align: center;
     }
-
-    .profile-img {
-        margin: 0 auto 2rem;
-        max-width: 280px;
-    }
-
-    .about-content h2:after {
+    
+    .about-title:after {
         left: 50%;
         transform: translateX(-50%);
     }
-
+    
+    .social-icons, .platform-badges {
+        justify-content: center;
+    }
+    
     .contact-form-container {
         padding: 2rem;
     }
-
+    
     .hero-content h1 {
         font-size: 3.5rem;
     }
@@ -1076,97 +788,80 @@ footer {
     .hero-content h1 {
         font-size: 2.8rem;
     }
-
+    
     .hero-content p {
         font-size: 1.2rem;
     }
-
-    .social-links {
-        grid-template-columns: 1fr;
-    }
-
-    .social-link {
-        padding: 1rem 1.6rem;
-    }
-
+    
     .experience-item,
     .publication-item,
     .project-item {
         padding: 1.5rem;
     }
-
+    
     .section-title {
         font-size: 2.2rem;
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
     }
 }
 
 @media (max-width: 576px) {
     nav ul {
         gap: 1rem;
-        font-size: 0.9rem;
     }
-
+    
     nav a {
         padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
     }
-
+    
     .hero {
         height: 80vh;
         clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
     }
-
+    
     .hero-content h1 {
         font-size: 2.2rem;
     }
-
+    
     .hero-content p {
         font-size: 1.1rem;
     }
-
-    .section-title {
-        font-size: 2rem;
-    }
-
-    .about-content h2 {
+    
+    .about-title {
         font-size: 1.8rem;
     }
-
-    .experience-header h3,
-    .publication-item h3,
-    .project-item h3 {
-        font-size: 1.3rem;
+    
+    .about-text p {
+        font-size: 1rem;
     }
-
+    
+    .social-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+    
+    .platform-badge {
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .platform-name {
+        font-size: 0.9rem;
+    }
+    
     .contact h2 {
         font-size: 2.2rem;
     }
-
+    
     .contact p {
         font-size: 1rem;
-    }
-
-    .social-link {
-        font-size: 1rem;
-        padding: 0.9rem 1.4rem;
     }
 }
 
 /* Animaciones */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .fadeIn {
@@ -1174,13 +869,8 @@ footer {
 }
 
 @keyframes shimmer {
-    0% {
-        background-position: -100% 0;
-    }
-
-    100% {
-        background-position: 200% 0;
-    }
+    0% { background-position: -100% 0; }
+    100% { background-position: 200% 0; }
 }
 
 .section-title:before {
@@ -1196,7 +886,6 @@ footer {
     animation: shimmer 2s infinite;
 }
 
-/* Añadir "scroll-behavior" para navegación suave */
 html {
     scroll-behavior: smooth;
 }
