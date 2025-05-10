@@ -441,6 +441,110 @@ section {
     margin-bottom: 0;
 }
 
+.publication-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-standard);
+}
+
+.publication-link:hover {
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+.publication-link i {
+    font-size: 0.9rem;
+}
+
+/* Congresos */
+.conferences-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.conference-item {
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow-soft);
+    padding: 2.5rem;
+    transition: var(--transition-standard);
+    border-left: 4px solid var(--book);
+}
+
+.conference-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.conference-item h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--book);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.conference-years {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+}
+
+.year {
+    background: rgba(242, 201, 76, 0.2);
+    color: var(--dark);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.conference-year {
+    color: #777;
+    font-size: 0.95rem;
+    margin-bottom: 1.2rem;
+}
+
+.conference-content p {
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+}
+
+.conference-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.conference-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-standard);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    background: rgba(58, 134, 255, 0.1);
+}
+
+.conference-link:hover {
+    background: rgba(58, 134, 255, 0.2);
+    color: var(--secondary);
+}
+
+.conference-link i {
+    font-size: 0.9rem;
+}
+
 /* Proyectos */
 .projects-container {
     display: flex;
