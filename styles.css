@@ -33,10 +33,11 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;700&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
 
-/* Hero Section */
+/* Hero Section - Mejorado */
 .hero {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    height: 80vh;
+    position: relative;
+    height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,20 +46,68 @@ body {
     padding: 2rem;
     clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
     margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+/* Añadir elementos decorativos al hero */
+.hero:before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10.5%),
+                radial-gradient(circle, rgba(255,255,255,0.1) 10%, transparent 10.5%);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    transform: rotate(45deg);
+    animation: moveBackground 60s linear infinite;
+    z-index: 1;
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0, 25px 25px;
+    }
+    100% {
+        background-position: 1000px 0, 1025px 25px;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .hero-content h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 3rem;
+    font-size: 4.5rem;
     margin-bottom: 1.5rem;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    letter-spacing: 1px;
 }
 
 .hero-content p {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     max-width: 700px;
     margin: 0 auto 2rem;
     opacity: 0.9;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    line-height: 1.8;
 }
 
 /* Navigation */
@@ -157,7 +206,7 @@ section {
     color: #555;
 }
 
-/* Redes Sociales */
+/* Redes Sociales - Mejorado */
 .social-section {
     margin-top: 3rem;
 }
@@ -184,9 +233,10 @@ section {
     background: var(--secondary);
 }
 
+/* Mejorar el grid para mostrar menos botones por fila en móvil */
 .social-links {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.2rem;
 }
 
@@ -194,33 +244,73 @@ section {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
+    padding: 1.2rem 1.8rem;  /* Botones más grandes */
+    border-radius: 12px;     /* Bordes más redondeados */
     text-decoration: none;
     color: white;
     font-weight: 600;
+    font-size: 1.1rem;       /* Texto más grande */
     transition: var(--transition-standard);
     box-shadow: var(--shadow-medium);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.social-link:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.social-link:hover:before {
+    transform: scaleX(1);
 }
 
 .social-link:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .social-link i {
-    font-size: 1.4rem;
+    font-size: 1.6rem;  /* Iconos más grandes */
 }
 
 /* Colores específicos para cada red */
-.linkedin { background: var(--primary); }
-.github { background: var(--dark); }
-.huggingface { background: var(--ai); color: var(--dark) !important; }
-.twitter { background: #1DA1F2; }
-.instagram { background: linear-gradient(45deg, #405DE6, #833AB4, #C13584, #E1306C, #FD1D1D); }
-.medium { background: #00AB6C; }
-.goodreads { background: var(--book); color: var(--dark) !important; }
-.email { background: var(--email); }
+.linkedin { 
+    background: linear-gradient(45deg, #0077B5, #00A0DC); 
+}
+.github { 
+    background: linear-gradient(45deg, #24292e, #40464e); 
+}
+.huggingface { 
+    background: linear-gradient(45deg, #00B4D8, #00F5D4); 
+    color: var(--dark) !important; 
+}
+.twitter { 
+    background: linear-gradient(45deg, #1DA1F2, #0C85D0); 
+}
+.instagram { 
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); 
+}
+.medium { 
+    background: linear-gradient(45deg, #00AB6C, #027D50); 
+}
+.goodreads { 
+    background: linear-gradient(45deg, #F2C94C, #E2A100); 
+    color: var(--dark) !important; 
+}
+.email { 
+    background: linear-gradient(45deg, #4CAF50, #388E3C); 
+}
 
 /* Títulos de sección */
 .section-title {
@@ -405,20 +495,33 @@ section {
     margin-left: -1rem;
 }
 
-/* Contacto */
+/* Contacto - Mejorado */
 .contact {
     text-align: center;
-    padding: 5rem 0;
+    padding: 7rem 0 5rem;
     background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
     color: white;
     clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
     margin-top: 4rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
 }
 
 .contact h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 2rem;
+    position: relative;
 }
 
 .contact p {
@@ -426,28 +529,32 @@ section {
     margin: 0 auto 3rem;
     font-size: 1.2rem;
     opacity: 0.9;
+    position: relative;
 }
 
+/* Redes sociales en contacto - mismas mejoras que las redes anteriores */
 .contact .social-links {
     justify-content: center;
     margin: 2rem auto;
     max-width: 800px;
+    position: relative;
 }
 
 /* Formulario de contacto */
 .contact-form-container {
     max-width: 700px;
     margin: 4rem auto 0;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 2.5rem;
-    border-radius: 10px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 .contact-form-container h3 {
     color: var(--dark);
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -464,16 +571,17 @@ section {
 }
 
 .form-group label {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
     color: var(--dark);
     font-weight: 600;
+    font-size: 1.05rem;
 }
 
 .form-group input,
 .form-group textarea {
-    padding: 1rem;
+    padding: 1.2rem;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     transition: var(--transition-standard);
@@ -483,26 +591,45 @@ section {
 .form-group textarea:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(58, 134, 255, 0.2);
+    box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.2);
 }
 
 .submit-button {
-    background: var(--primary);
+    background: linear-gradient(45deg, var(--primary), #2a75e8);
     color: white;
     font-weight: 700;
     font-size: 1.1rem;
-    padding: 1rem;
+    padding: 1.2rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
     transition: var(--transition-standard);
     margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.submit-button:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #2a75e8, var(--primary));
+    opacity: 0;
+    z-index: -1;
+    transition: var(--transition-standard);
+}
+
+.submit-button:hover:before {
+    opacity: 1;
 }
 
 .submit-button:hover {
-    background: #2a75e8;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(42, 117, 232, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(42, 117, 232, 0.4);
 }
 
 .submit-button:active {
@@ -579,19 +706,27 @@ footer {
     .contact-form-container {
         padding: 2rem;
     }
+    
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
 }
 
 @media (max-width: 768px) {
     .hero-content h1 {
-        font-size: 2.2rem;
+        font-size: 2.8rem;
     }
 
     .hero-content p {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
-
+    
     .social-links {
         grid-template-columns: 1fr;
+    }
+    
+    .social-link {
+        padding: 1rem 1.6rem;
     }
     
     .experience-item,
@@ -621,12 +756,16 @@ footer {
     }
 
     .hero {
-        height: 70vh;
-        clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        height: 80vh;
+        clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
     }
 
     .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
     }
 
     .section-title {
@@ -649,6 +788,11 @@ footer {
     
     .contact p {
         font-size: 1rem;
+    }
+    
+    .social-link {
+        font-size: 1rem;
+        padding: 0.9rem 1.4rem;
     }
 }
 
@@ -678,4 +822,9 @@ footer {
     background: linear-gradient(90deg, transparent, var(--secondary), transparent);
     background-size: 200% 100%;
     animation: shimmer 2s infinite;
+}
+
+/* Añadir "scroll-behavior" para navegación suave */
+html {
+    scroll-behavior: smooth;
 }
